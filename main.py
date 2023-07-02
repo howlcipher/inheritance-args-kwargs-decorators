@@ -22,6 +22,11 @@ class person():
         for arg in args:
             if callable(arg):
                 arg()
+            elif isinstance(arg, str):
+                print(arg)
+            else:
+                print('arg provide is not valid')
+
         self.talk()
         print(f'Status: {self.attributes["status"]}')
         print(f'Health: {self.attributes["health"]}')
@@ -57,6 +62,9 @@ def helloworld():
 def mindset():
     print("I've got my mind set on you!")
 
+
+#testing output
+
 # creating an object using 3 arguments and 2 keyword arguments
 noone = person('no', 'one', '9000', status='invisible', health='transparent')
 noone.introduce(helloworld)
@@ -69,5 +77,6 @@ another.introduce()
 ringo = drummer(True, 'Ringo', 'Star', powerlevel='da best')
 ringo.introduce()
 
+# creating a drummer that inherits from person and drummer is false
 george = drummer(False, 'George', 'Harrison')
-george.introduce(helloworld, mindset)
+george.introduce(helloworld, mindset, 'I am a beatle!', 1943) # using multiple args, two functions, a string, and int (George's birth year)
